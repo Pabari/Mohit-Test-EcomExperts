@@ -130,7 +130,6 @@
       var dropdowns = document.querySelectorAll(".dropdown-Size");
       dropdowns.forEach(function(dropdown) {
           dropdown.options[0].selected = true;
-          var event = new Event('change');
           dropdown.onchange();
       });
       
