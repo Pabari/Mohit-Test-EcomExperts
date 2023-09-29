@@ -1,4 +1,4 @@
-let link = document.querySelector('[name="Size"]');
-if (link) {
-    link.removeAttribute('checked');
+let OptionSize = document.querySelector('[name="Size"]');
+if (OptionSize) {
+    OptionSize.removeAttribute('checked');
 }
