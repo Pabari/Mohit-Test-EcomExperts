@@ -2,7 +2,7 @@
 let OptionSize = document.querySelector('[name="Size"]');
 if (OptionSize) {
     OptionSize.removeAttribute('checked');
-    var form__submit_btn = table.getElementsByClassName("product-form__submit"); 
+    var form__submit_btn = document.getElementsByClassName("product-form__submit"); 
     for (var i = 0; i < form__submit_btn.length; i++) { 
         form__submit_btn[i].disabled = true;
     }
