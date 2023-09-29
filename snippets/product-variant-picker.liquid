@@ -54,9 +54,6 @@
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
             >
-              {% if option.name == 'Size' %}
-                <option selected="selected" disabled value="null" id="unselected-size">Unselected</option>
-              {% endif %}
               {% render 'product-variant-options', product: product, option: option, block: block %}
             </select>
             {% render 'icon-caret' %}
@@ -123,18 +120,3 @@
     </div>
   </div>
 </noscript>
-
-{% comment %}
-  Disable submit button untill select any size
-{% endcomment %}
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var unselected_size = document.getElementById("unselected-size");
-    if(unselected_size) {
-      const submit_btns = document.querySelectorAll('.product-form__submit');
-      for (const submit_btn of submit_btns) {
-        submit_btn.setAttribute('disabled', '');
-      }
-    }
-  }, false);
-</script>
