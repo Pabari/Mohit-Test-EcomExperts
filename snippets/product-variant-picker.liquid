@@ -120,3 +120,15 @@
     </div>
   </div>
 </noscript>
+
+{% comment %}
+  Disable submit button untill select any size
+{% endcomment %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var dropdown_size = document.getElementsByClassName("dropdown-Size");
+    if(dropdown_size.length > 0) {
+      document.getElementsByClassName("dropdown-Size").selectedIndex = 0;
+    }
+  }, false);
+</script>
