@@ -55,7 +55,7 @@
               form="{{ product_form_id }}"
             >
               {% if option.name == 'Size' %}
-                <option selected="selected" disabled value="" id="unselected-size">Unselected</option>
+                <option selected="selected" disabled value="null" id="unselected-size">Unselected</option>
               {% endif %}
               {% render 'product-variant-options', product: product, option: option, block: block %}
             </select>
@@ -130,6 +130,6 @@
 <script>
   var unselected_size = document.getElementById("unselected-size");
   if(unselected_size) {
-    document.querySelector('#unselected_size').value = "";
+    document.querySelector('#unselected_size').value = "null";
   }
 </script>
