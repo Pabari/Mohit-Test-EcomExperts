@@ -128,9 +128,10 @@
   Default select unselected size 
 {% endcomment %}
 <script>
-  const submit_btns = document.querySelectorAll('.product-form__submit');
-  for (const submit_btn of submit_btns) {
-    submit_btn.setAttribute('disabled', '');
-  }
-  
+  document.addEventListener('DOMContentLoaded', function() {
+    const submit_btns = document.querySelectorAll('.product-form__submit');
+    for (const submit_btn of submit_btns) {
+      submit_btn.setAttribute('disabled', '');
+    }
+  }, false);
 </script>
