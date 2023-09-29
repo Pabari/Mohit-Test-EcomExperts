@@ -131,7 +131,7 @@
       dropdowns.forEach(function(dropdown) {
           dropdown.options[0].selected = true;
           var event = new Event('change');
-          dropdown.dispatchEvent(event);
+          dropdown.onchange();
       });
       
   });
