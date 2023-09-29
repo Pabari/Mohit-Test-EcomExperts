@@ -66,6 +66,21 @@
       </script>
     </variant-selects>
   {%- endif -%}
+
+  {%- for option in product.options_with_values -%}
+      {% if option.name == "Size" %}
+          <legend class="form__label">{{ option.name }}</legend>
+          <div class="select">
+              <select class="select__select" onchange="handleSelectChange(event)">
+                  <option value="Select Size" selected disabled>Select Size</option>
+                  {%- for value in option.values -%}
+                      <option value="{{ value | escape }}">{{ value | escape }}</option>
+                  {%- endfor -%}
+              </select>
+              {% render 'icon-caret' %}
+          </div>
+      {% endif %}
+  {%- endfor -%}
 {%- endunless -%}
 
 <noscript class="product-form__noscript-wrapper-{{ section.id }}">
