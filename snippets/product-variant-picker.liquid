@@ -126,10 +126,11 @@
 {% endcomment %}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var dropdown_size = document.getElementsByClassName("dropdown-Size");
-    console.log('1111');
-    if(dropdown_size.length > 0) {
-      document.querySelector(".dropdown-Size").val('Unselected');
-    }
+    var dropdownElements = document.querySelectorAll('.dropdown-Size');
+
+    // Loop through each element and set its value to 'Unselected'
+    dropdownElements.forEach(function(element) {
+        element.value = 'Unselected';
+    });
   }, false);
 </script>
