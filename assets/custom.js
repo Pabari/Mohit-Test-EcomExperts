@@ -2,7 +2,10 @@
 let OptionSize = document.querySelector('[name="Size"]');
 if (OptionSize) {
     OptionSize.removeAttribute('checked');
-    document.getElementsByClassName("product-form__submit").setAttribute('disabled', '');
+    var form__submit_btn = table.getElementsByClassName("product-form__submit"); 
+    for (var i = 0; i < form__submit_btn.length; i++) { 
+        form__submit_btn[i].disabled = true;
+    }
 }
 
 // Update Dropdown Value
