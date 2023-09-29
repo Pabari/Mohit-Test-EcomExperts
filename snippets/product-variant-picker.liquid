@@ -128,7 +128,12 @@
   document.addEventListener('DOMContentLoaded', function() {
     var dropdown_size = document.getElementsByClassName("dropdown-Size");
     if(dropdown_size.length > 0) {
-      document.getElementsByClassName("dropdown-Size").selectedIndex = 0;
+      selectTags = myForm.getElementsByClassName("dropdown-Size");
+
+      for(var i = 0; i < selectTags.length; i++) {
+        selectTags[i].selectedIndex =0;
+      }  
+      //document.getElementsByClassName("dropdown-Size").selectedIndex = 0;
     }
   }, false);
 </script>
