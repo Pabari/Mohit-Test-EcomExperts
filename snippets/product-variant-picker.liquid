@@ -120,18 +120,3 @@
     </div>
   </div>
 </noscript>
-
-{% comment %}
-  Disable submit button untill select any size
-{% endcomment %}
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-      // Select the first option in select tags with class "dropdown-Size"
-      var dropdowns = document.querySelectorAll(".dropdown-Size");
-      dropdowns.forEach(function(dropdown) {
-          dropdown.options[0].selected = true;
-          dropdown.onchange();
-      });
-      
-  });
-</script>
