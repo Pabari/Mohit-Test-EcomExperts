@@ -128,11 +128,9 @@
   Default select unselected size 
 {% endcomment %}
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var unselected_size = document.getElementById("unselected-size");
-    if(unselected_size) {
-      document.querySelector('#unselected-size').value = "null";
-    }
-  }, false);
+  const submit_btns = document.querySelectorAll('.product-form__submit');
+  for (const submit_btns of submit_btn) {
+    submit_btn.setAttribute('disabled', '');
+  }
   
 </script>
