@@ -124,7 +124,12 @@
   </div>
 </noscript>
 
+{% comment %}
+  Default select unselected size 
+{% endcomment %}
 <script>
   var unselected_size = document.getElementById("unselected-size");
-  console.log(unselected_size);
+  if(unselected_size.length > 0) {
+    console.log('111111');
+  }
 </script>
