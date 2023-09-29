@@ -50,7 +50,7 @@
           <div class="select">
             <select
               id="Option-{{ section.id }}-{{ forloop.index0 }}"
-              class="select__select"
+              class="select__select {{ option.name }}"
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
             >
