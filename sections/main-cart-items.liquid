@@ -77,7 +77,7 @@
 
             <tbody>
               {%- for item in cart.items -%}
-                <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
+                <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}" data-item-id="{{ item.variant.id }}">
                   <td class="cart-item__media">
                     {% if item.image %}
                       {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
@@ -234,7 +234,7 @@
                       assign has_vol_pricing = true
                     endif
                   -%}
-                  <td class="cart-item__quantity{% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %}">
+                  <td class="cart-item__quantity{% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %}" {% if item.variant.id == 47054002749752 %} style="visibility: hidden" {% endif %}>
                     <quantity-popover>
                       <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
                         <label class="visually-hidden" for="Quantity-{{ item.index | plus: 1 }}">
@@ -465,6 +465,75 @@
     </p>
   </form>
 </cart-items>
+
+{% comment %}
+  Free Gift Code
+{% endcomment %}
+<script>
+  var item_rows = document.getElementsByClassName("cart-item");
+  var parent_product = false;
+  var child_product = false;
+  var child_row_index = 0;
+  if(item_rows.length > 0) {
+    for (var i = 0; i < item_rows.length; i++) {
+      var item_id = item_rows.item(i).getAttribute("data-item-id");
+      if(item_id == '47059112427832') {
+        var parent_product = true;
+      }
+      if(item_id == '47054002749752') {
+        var child_product = true;
+        var child_row_index = i;
+      }
+    }
+
+    if(parent_product == true && child_product == false) {
+      addItem(47054002749752, 1);
+      setTimeout(() => {
+        location.reload();
+      }, "1000");
+    }
+
+    if(child_product == true && parent_product == false) {
+      removeItemByLine(child_row_index + 1);
+      setTimeout(() => {
+        location.reload();
+      }, "1000");
+    }
+  }
+
+  function addItem(variantId, quantity, properties = {}) {
+    const result = fetch("/cart/add.json", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            id: variantId,
+            quantity: quantity,
+            properties: properties
+        })
+    })
+  }
+
+  function removeItem(data) {
+      const result = fetch("/cart/change.json", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+          },
+          body: JSON.stringify({
+              ...data,
+              quantity: 0
+          })
+      });
+  }
+  
+  function removeItemByLine(oneBasedLineIndex) {
+      removeItem({ line: oneBasedLineIndex });
+  }
+</script>
 
 {% schema %}
 {
