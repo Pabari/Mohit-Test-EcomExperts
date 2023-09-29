@@ -72,7 +72,7 @@
           <legend class="form__label">{{ option.name }}</legend>
           <div class="select">
               <select class="select__select" onchange="handleSelectChange(event)">
-                  <option value="Select Size" selected disabled>Select Size</option>
+                  <option value="Select Size" selected disabled>Unselected</option>
                   {%- for value in option.values -%}
                       <option value="{{ value | escape }}">{{ value | escape }}</option>
                   {%- endfor -%}
