@@ -130,7 +130,13 @@
         }
       }
     },
+<<<<<<< HEAD
     "content_for_index": [],
+=======
+    "content_for_index": [
+
+    ],
+>>>>>>> d0db405629c9d58571cd89f11609095b811ccf45
     "color_schemes": {
       "background-1": {
         "settings": {
