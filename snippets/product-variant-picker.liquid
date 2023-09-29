@@ -55,7 +55,7 @@
               form="{{ product_form_id }}"
             >
               {% if option.name == 'Size' %}
-                <option selected="selected" disabled value="Unselected" id="unselected-size">Unselected</option>
+                <option selected="selected" disabled value="null" id="unselected-size">Unselected</option>
               {% endif %}
               {% render 'product-variant-options', product: product, option: option, block: block %}
             </select>
@@ -129,9 +129,12 @@
 {% endcomment %}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const submit_btns = document.querySelectorAll('.product-form__submit');
-    for (const submit_btn of submit_btns) {
-      submit_btn.setAttribute('disabled', '');
+    var unselected_size = document.getElementById("unselected-size");
+    if(unselected_size) {
+      const submit_btns = document.querySelectorAll('.product-form__submit');
+      for (const submit_btn of submit_btns) {
+        submit_btn.setAttribute('disabled', '');
+      }
     }
   }, false);
 </script>
