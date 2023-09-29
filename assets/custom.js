@@ -9,9 +9,9 @@ if (OptionSize) {
 }
 
 // Update Dropdown Value
-function handleSelectChange(event) {
+function cartSelectChange(event) {
     var selectElement = event.target;
-    var value = selectElement.value;
+    var selectvalue = selectElement.value;
     document.querySelector(".product-form__submit").removeAttribute("disabled");
-    document.querySelector("input[name='Size'][value="+value+"]").click();
+    document.querySelector("input[name='Size'][value="+selectvalue+"]").click();
 }

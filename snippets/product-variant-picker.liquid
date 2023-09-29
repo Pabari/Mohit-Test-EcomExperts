@@ -71,7 +71,7 @@
       {% if option.name == "Size" %}
           <legend class="form__label">{{ option.name }}</legend>
           <div class="select">
-              <select class="select__select" onchange="handleSelectChange(event)">
+              <select class="select__select" onchange="cartSelectChange(event)">
                   <option value="Select Size" selected disabled>Unselected</option>
                   {%- for value in option.values -%}
                       <option value="{{ value | escape }}">{{ value | escape }}</option>
