@@ -126,10 +126,13 @@
 {% endcomment %}
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-      // Select the first option in select tags with class "dropdown-Size"
-      var dropdowns = document.querySelectorAll(".dropdown-Size");
-      dropdowns.forEach(function(dropdown) {
-          dropdown.options[0].selected = true;
-      });
-  });
+    // Select the first option in select tags with class "dropdown-Size"
+    var dropdowns = document.querySelectorAll(".dropdown-Size");
+    for (var i = 0; i < dropdowns.length; i++) {
+        var options = dropdowns[i].getElementsByTagName("option");
+        if (options.length > 0) {
+            options[0].selected = true;
+        }
+    }
+});
 </script>
