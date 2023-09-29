@@ -477,17 +477,17 @@
   if(item_rows.length > 0) {
     for (var i = 0; i < item_rows.length; i++) {
       var item_id = item_rows.item(i).getAttribute("data-item-id");
-      if(item_id == '45557012693287') {
+      if(item_id == '47059112427832') {
         var parent_product = true;
       }
-      if(item_id == '45557011546407') {
+      if(item_id == '47054002749752') {
         var child_product = true;
         var child_row_index = i;
       }
     }
 
     if(parent_product == true && child_product == false) {
-      addItem(45557011546407, 1);
+      addItem(47054002749752, 1);
       setTimeout(() => {
         location.reload();
       }, "1000");
