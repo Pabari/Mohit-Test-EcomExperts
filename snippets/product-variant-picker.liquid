@@ -128,8 +128,11 @@
   Default select unselected size 
 {% endcomment %}
 <script>
-  var unselected_size = document.getElementById("unselected-size");
-  if(unselected_size) {
-    document.querySelector('#unselected-size').value = "null";
-  }
+  document.addEventListener('DOMContentLoaded', function() {
+    var unselected_size = document.getElementById("unselected-size");
+    if(unselected_size) {
+      document.querySelector('#unselected-size').value = "null";
+    }
+  }, false);
+  
 </script>
