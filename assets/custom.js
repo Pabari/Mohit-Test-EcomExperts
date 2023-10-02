@@ -19,6 +19,7 @@ if(OptionSize) {
       
       OptionColors.forEach(function(OptionColor) {
           OptionColor.addEventListener("change", function() {
+            document.querySelector('#select-Size').value = OptionSize.value;
             document.querySelector("input[name='Size'][value="+OptionSize.value+"]").click();
           });
       });
