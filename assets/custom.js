@@ -2,7 +2,6 @@
 window.onload = function CheckSizeOptions() {
     let OptionSize = document.querySelector('[name="Size"]');
     if (OptionSize) {
-        console.log(OptionSize.value);
         OptionSize.removeAttribute('checked');
         document.querySelector('#select-Size').value = "Select Size";
         var form__submit_btn = document.getElementsByClassName("product-form__submit"); 
@@ -20,7 +19,7 @@ if(OptionSize) {
       
       OptionColors.forEach(function(OptionColor) {
           OptionColor.addEventListener("change", function() {
-              console.log(OptionSize.value)
+            document.querySelector("input[name='Size'][value="+OptionSize.value+"]").click();
           });
       });
   });
