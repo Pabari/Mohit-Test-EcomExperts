@@ -1,14 +1,17 @@
 // Remove Checked attr
-let OptionSize = document.querySelector('[name="Size"]');
-if (OptionSize) {
-    console.log(OptionSize.value);
-    OptionSize.removeAttribute('checked');
-    document.querySelector('#select-Size').value = "Select Size";
-    var form__submit_btn = document.getElementsByClassName("product-form__submit"); 
-    for (var i = 0; i < form__submit_btn.length; i++) { 
-        form__submit_btn[i].disabled = true;
+window.onload = function CheckSizeOptions() {
+    let OptionSize = document.querySelector('[name="Size"]');
+    if (OptionSize) {
+        console.log(OptionSize.value);
+        OptionSize.removeAttribute('checked');
+        document.querySelector('#select-Size').value = "Select Size";
+        var form__submit_btn = document.getElementsByClassName("product-form__submit"); 
+        for (var i = 0; i < form__submit_btn.length; i++) { 
+            form__submit_btn[i].disabled = true;
+        }
     }
 }
+
 
 // Update Dropdown Value
 function cartSelectChange(event) {
