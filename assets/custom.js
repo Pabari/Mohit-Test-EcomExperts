@@ -12,6 +12,15 @@ window.onload = function CheckSizeOptions() {
     }
 }
 
+let OptionSize = document.querySelector('[name="Size"]');
+let OptionColor = document.querySelector('[name="Color"]');
+
+if(OptionSize) {
+  document.querySelector('input[type=radio][name="Color"]').change(function() {
+      console.log('1111111'); // or, use `this.value`
+  });
+}
+
 
 // Update Dropdown Value
 function cartSelectChange(event) {
