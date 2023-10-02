@@ -13,15 +13,14 @@ window.onload = function CheckSizeOptions() {
 }
 
 let OptionSize = document.querySelector('[name="Size"]');
-let OptionColor = document.querySelector('[name="Color"]');
 
 if(OptionSize) {
   document.addEventListener("DOMContentLoaded", function() {
-      var OptionColor = document.querySelectorAll('input[type=radio][name="Color"]');
+      var OptionColors = document.querySelectorAll('input[type=radio][name="Color"]');
       
-      OptionColor.forEach(function(radioInput) {
-          radioInput.addEventListener("change", function() {
-              alert(this.value);
+      OptionColors.forEach(function(OptionColor) {
+          OptionColor.addEventListener("change", function() {
+              console.log(OptionSize.value)
           });
       });
   });
