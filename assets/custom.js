@@ -16,9 +16,16 @@ let OptionSize = document.querySelector('[name="Size"]');
 let OptionColor = document.querySelector('[name="Color"]');
 
 if(OptionSize) {
-  OptionColor.change(function() {
-      console.log('1111111'); // or, use `this.value`
+  document.addEventListener("DOMContentLoaded", function() {
+      var OptionColor = document.querySelectorAll('input[type=radio][name="Color"]');
+      
+      OptionColor.forEach(function(radioInput) {
+          radioInput.addEventListener("change", function() {
+              alert(this.value);
+          });
+      });
   });
+
 }
 
 
