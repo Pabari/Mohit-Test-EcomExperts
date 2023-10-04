@@ -22,7 +22,7 @@
       {{ block.shopify_attributes }}
     >
       {%- for option in product.options_with_values -%}
-        <fieldset class="js product-form__input">
+        <fieldset class="js product-form__input {% if option.name == "Size" %} hidden {% endif %}">
           <legend class="form__label">{{ option.name }}</legend>
           {% render 'product-variant-options', product: product, option: option, block: block %}
         </fieldset>
@@ -50,7 +50,7 @@
           <div class="select">
             <select
               id="Option-{{ section.id }}-{{ forloop.index0 }}"
-              class="select__select"
+              class="select__select dropdown-{{ option.name }}"
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
             >
@@ -66,6 +66,21 @@
       </script>
     </variant-selects>
   {%- endif -%}
+
+  {%- for option in product.options_with_values -%}
+      {% if option.name == "Size" %}
+          <legend class="form__label">{{ option.name }}</legend>
+          <div class="select">
+              <select id="select-{{ option.name }}" class="select__select" onchange="cartSelectChange(event)">
+                  <option value="Select Size" selected disabled>Unselected</option>
+                  {%- for value in option.values -%}
+                      <option value="{{ value | escape }}">{{ value | escape }}</option>
+                  {%- endfor -%}
+              </select>
+              {% render 'icon-caret' %}
+          </div>
+      {% endif %}
+  {%- endfor -%}
 {%- endunless -%}
 
 <noscript class="product-form__noscript-wrapper-{{ section.id }}">
